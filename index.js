@@ -1,28 +1,29 @@
 const exp = require('express')
 const app = exp()
-app.set('view engine', 'ejs')
-app.use(exp.static('public'))
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
 app.get('/', (req, res) => {
-	res.render('index')
-})
+	res.render('index.ejs');
+});
 
-//Listens on port 8080
-server = app.listen(8080)
 
-const io = require('socket.io')(server)
-io.on('connection', (socket) => {
-	console.log('Connection Established')
+io.sockets.on('connection', function (socket){
+	socket.on('username', function(username){
+		socket.username = username;
+		io.emit('is_online', '<i> ' + socket.username + 'joined the chat... </i>');
+	});
 
-socket.username = 'Default-User'
-socket.on('set_username', (data) => {
-	socket.username = data.username
-})
+	socket.on('disconnect', function(username){	
+		io.emit('is_online', '<i> ' + socket.username + 'left the chat... </i>');
+	})
 
-socket.on('new_message',(data) => {
-	io.sockets.emit('new_message', {message: data.message, username:socket.username});
-})
+	socket.on('chat_message', function(message){
+		io.emit('chat_message', '<strong>' + socket.username + '</strong>:' + message);
+	});
+});
 
-socket.on('typing', (data) => {
-	socket.broadcast.emit('typing', {username: socket.username})
-})
-})
+
+const server = http.listen(8080, function(){
+	console.log('Listening on port 8080')
+});
