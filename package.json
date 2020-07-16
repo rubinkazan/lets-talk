@@ -1,0 +1,19 @@
+{
+  "name": "lets-talk",
+  "version": "1.0.0",
+  "description": "Let's Talk is a simple chat application that allows users to communicate with eachother over the local network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubinkazan/lets-talk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubinkazan/lets-talk/issues"
+  },
+  "homepage": "https://github.com/rubinkazan/lets-talk#readme"
+}
