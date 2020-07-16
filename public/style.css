@@ -24,7 +24,7 @@ header {
 }
 
 h1 {
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Sora', sans-serif;
     margin: 0px;
 }
 
@@ -81,7 +81,7 @@ p.message {
     width: 100%;
     height: 40px;
     font-size: 2vh;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Sora', sans-serif;
     padding: 1vh;
 }
 
