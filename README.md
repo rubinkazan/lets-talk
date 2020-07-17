@@ -3,5 +3,6 @@ Let's Talk is a simple chat application that allows users to communicate with ea
 # Instructions
 1. Install [NodeJS](https://nodejs.org/en/download/)
 2. Run: npm install -g
-3. Run: npm run start
-4. Visit: localhost:8080
+3. Run: npm install -g nodemon
+4. Run: npm run start
+5. Visit: localhost:8080
